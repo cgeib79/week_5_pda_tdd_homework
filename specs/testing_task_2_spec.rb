@@ -4,62 +4,65 @@ require_relative('../card.rb')
 class TestCardGame <MiniTest::Test
 
   def setup
-    @card = {
-      name: "Ace",
-      value: 1
-    },
+    @card1 = Card.new("Clubs", 1, "Ace");
 
-    @card1 = {
-      name: "King",
-      value: 2
-    },
+    @card2 = Card.new("Clubs", 2, "Queen");
 
-    @card2 = {
-      name: "Queen",
-      value: 3
-    }
+    @cards = [@card1, @card2];
 
-@cards = [@card, @card1, @card1]
+    @checkforAce = CardGame.new(@cards);
+
+    @highest_card = CardGame.new(@cards);
+
+    @cards_total = CardGame.new(@cards);
 
   end
 
 
-
-  def test_checkforAce
+  def test_checkforAce()
     #arrange
     #act
-    result = checkforAce(@card)
+    result = checkforAce(@card1, @card2)
     #assert
     assert_equal(true, result)
   end
 
-  #-->throws up error message: NoMethodError: undefined method `checkforAce' for _spec.rb: 30
-  #however, isn't this defined in def checkforAce(card)in the testing_task_2.rb file ?
+#still gets error message
+# TestCardGame#test_checkforAce:
+# ArgumentError: wrong number of arguments (given 1, expected 0)
+#     testing_task_2_spec.rb:13:in `initialize'
+#     testing_task_2_spec.rb:13:in `new'
+#     testing_task_2_spec.rb:13:in `setup'
+#--------
 
-
-
-
-
-    # def test_highest_card
-    #   #arrange
-    #   #act
-    #   result = highest_card(@card1, 2, @card2, 3)
-    #   #assert
-    #   assert_equal("Queen", result)
-    # end
-    #
-
-  #-->throws up error message: NoMethodError: undefined method `highest_card' for _spec.rb: 43
-  #however, isn't this defined in def highest_card(card1, card2) in the testing_task_2.rb file ?
-
-  # def test_self.cards_total(cards)
+  # def test_highest_card
   #   #arrange
   #   #act
-  #   total = self.cards_total(@cards)
+  #   result = highest_card(@card2)
   #   #assert
-  #   assert_equal(6, total)
+  #   assert_equal("Queen", result)
   # end
 
-  #-->throws up error message: NoMethodError: undefined method undefined local variable or method `test_self' for _spec.rb: 54
-#however, isn't this defined in def self.cards_total(cards) in the testing_task_2.rb file ?
+  #still gets error message:
+  #TestCardGame#test_highest_card:
+  # ArgumentError: wrong number of arguments (given 1, expected 0)
+  #     testing_task_2_spec.rb:13:in `initialize'
+  #     testing_task_2_spec.rb:13:in `new'
+  #     testing_task_2_spec.rb:13:in `setup'
+
+  # def test_cards_total()
+  #   #arrange
+  #   #act
+  #   total = cards_total(@cards)
+  #   #assert
+  #   assert_equal(3, total)
+  # end
+
+#still gets error message:
+  # TestCardGame#test_cards_total:
+  # ArgumentError: wrong number of arguments (given 1, expected 0)
+  #     testing_task_2_spec.rb:13:in `initialize'
+  #     testing_task_2_spec.rb:13:in `new'
+  #     testing_task_2_spec.rb:13:in `setup'
+
 end
