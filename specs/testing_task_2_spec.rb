@@ -31,14 +31,12 @@ class TestCardGame <MiniTest::Test
     assert_equal("Queen", result)
   end
 
-  def test_cards_total(@cards)
+  def test_self.cards_total()
     #arrange
     #act
-    result = @game.cards_total(@cards)
+    result = @game.self.cards_total(@cards)
     #assert
-    assert_equal(3, total)
+    assert_equal(3, result)
   end
-
-
 
 end
