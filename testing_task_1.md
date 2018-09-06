@@ -30,6 +30,7 @@ def self.cards_total(cards)
     total += card.value
     # end
     return "You have a total of" + total
+    #instead of + total outside the quotes it should be "You have a total of#{total}" 
   end #this 'end should not be here but 1 line above'
 end
 

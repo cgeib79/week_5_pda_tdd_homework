@@ -1,6 +1,9 @@
 require('minitest/autorun')
+require('minitest/rg')
+require('pry')
 require_relative('../testing_task_2.rb')
 require_relative('../card.rb')
+
 class TestCardGame <MiniTest::Test
 
   def setup
@@ -31,12 +34,10 @@ class TestCardGame <MiniTest::Test
     assert_equal("Queen", result)
   end
 
-  def test_self.cards_total()
-    #arrange
-    #act
-    result = @game.self.cards_total(@cards)
-    #assert
-    assert_equal(3, result)
+  def test_cards_total()
+    cards = [@card1, @card2]
+    result = @game.cards_total(cards)
+    assert_equal("You have a total of 3", result)
   end
 
 end
